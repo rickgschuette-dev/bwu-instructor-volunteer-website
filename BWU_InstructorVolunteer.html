@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridgewater Friends Forum — Classes You'd Like to Teach</title>
+  <style>
+    :root {
+      --navy: #1a3a5c;
+      --gold: #c8922a;
+      --gold-dark: #b07a1e;
+      --bg: #f9f7f4;
+      --card: #fdf8f1;
+      --border: #d4c9b0;
+      --success: #2a7a4b;
+      --lightblue: #cde0f5;
+      --red: #c0241c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--navy);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34px;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ---------- Header ---------- */
+    header.page-header {
+      background: var(--navy);
+      border-bottom: 4px solid var(--gold);
+      text-align: center;
+      padding: 36px 20px 30px;
+    }
+
+    header.page-header .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 220px;
+      max-width: 60%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    header.page-header h1 {
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 64px;
+      margin: 0 0 8px;
+    }
+
+    header.page-header .youni {
+      color: var(--gold);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 38px;
+      margin: 0 0 16px;
+    }
+
+    header.page-header .subtitle {
+      color: var(--lightblue);
+      font-style: italic;
+      font-size: 34px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Intro block ---------- */
+    .intro {
+      max-width: 680px;
+      margin: 32px auto 0;
+      padding: 0 20px;
+      color: var(--navy);
+    }
+
+    .intro p {
+      margin: 0 0 16px;
+    }
+
+    .intro .lead {
+      font-size: 40px;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    /* ---------- Form card ---------- */
+    main {
+      flex: 1 0 auto;
+      width: 100%;
+    }
+
+    .card {
+      background: #ffffff;
+      max-width: 680px;
+      margin: 28px auto 48px;
+      padding: 36px 36px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(26, 58, 92, 0.12);
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    label.field-label {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: var(--navy);
+      margin-bottom: 6px;
+      font-size: 32px;
+    }
+
+    .req {
+      color: var(--gold-dark);
+      font-weight: bold;
+    }
+
+    .helper {
+      font-size: 30px;
+      font-weight: bold;
+      font-style: italic;
+      color: var(--red);
+      margin-top: 5px;
+      margin-bottom: 14px;
+    }
+
+    /* ---------- Text inputs ---------- */
+    input.text-input {
+      width: 100%;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 32px;
+      color: var(--navy);
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--card);
+    }
+
+    input.text-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200, 146, 42, 0.25);
+    }
+
+    /* ---------- Scrolling class checklist ---------- */
+    .class-list {
+      max-height: 460px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--card);
+      padding: 8px 18px 14px;
+      scrollbar-width: auto;
+      scrollbar-color: var(--red) var(--card);
+    }
+
+    .class-list::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    .class-list::-webkit-scrollbar-track {
+      background: var(--card);
+      border-radius: 8px;
+    }
+
+    .class-list::-webkit-scrollbar-thumb {
+      background: var(--red);
+      border-radius: 8px;
+      border: 3px solid var(--card);
+    }
+
+    .class-list::-webkit-scrollbar-thumb:hover {
+      background: #9c1c15;
+    }
+
+    .class-group {
+      border: none;
+      margin: 0;
+      padding: 14px 0 4px;
+    }
+
+    .class-group + .class-group {
+      border-top: 1px solid var(--border);
+    }
+
+    .class-group legend {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: var(--navy);
+      font-size: 30px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0;
+      margin-bottom: 6px;
+    }
+
+    label.class-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 8px;
+      margin: 2px -8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    label.class-option:hover {
+      background: var(--lightblue);
+    }
+
+    label.class-option input[type="checkbox"] {
+      width: 32px;
+      height: 32px;
+      margin-top: 6px;
+      flex-shrink: 0;
+      accent-color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* ---------- Submit button ---------- */
+    button.submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 36px;
+      padding: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      margin-top: 24px;
+    }
+
+    button.submit-btn:hover,
+    button.submit-btn:focus {
+      background: var(--gold-dark);
+    }
+
+    .error-msg {
+      color: #b3261e;
+      font-size: 30px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* ---------- Confirmation ---------- */
+    .confirmation {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .confirmation .check {
+      color: var(--success);
+      font-size: 144px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .confirmation h2 {
+      color: var(--navy);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 52px;
+      margin: 0 0 18px;
+    }
+
+    .confirmation p {
+      color: var(--navy);
+      margin: 0 0 16px;
+    }
+
+    .confirmation .signature {
+      color: var(--gold-dark);
+      font-style: italic;
+      margin-top: 24px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      flex-shrink: 0;
+      background: var(--navy);
+      color: #ffffff;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px 18px;
+      font-style: italic;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 600px) {
+      header.page-header .logo { width: 160px; }
+      header.page-header h1 { font-size: 48px; }
+      header.page-header .youni { font-size: 32px; }
+      header.page-header .subtitle { font-size: 32px; }
+      .card { margin: 20px 14px 36px; padding: 24px 20px 28px; }
+      .intro { margin-top: 24px; }
+      .intro .lead { font-size: 36px; }
+      .class-list { max-height: none; overflow-y: visible; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <img class="logo" src="bff-logo.png" alt="Bridgewater Friends Forum logo" />
+    <h1>BRIDGEWATER FRIENDS FORUM</h1>
+    <p class="youni">Classes You'd Like to Teach or Lead</p>
+    <p class="subtitle">Browse the classes below and check off the ones you'd be willing to teach or lead. Then send your picks to us — that's all it takes.</p>
+  </header>
+
+  <section class="intro">
+    <p class="lead">We need YOU.</p>
+    <p>The Bridgewater Friends Forum is built entirely on the expertise, experience, and generosity of our own residents. The classes below have interested students waiting — but still need someone to lead them.</p>
+    <p>We need class leaders and facilitators who are interested in the subject and willing to learn right along with participants. Look through the list below and let us know which one(s) you feel comfortable leading.</p>
+  </section>
+
+  <main>
+    <div class="card">
+
+      <!-- Form -->
+      <form
+        id="volunteer-form"
+        name="bwu-instructor-volunteer"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="bwu-instructor-volunteer" />
+        <input type="hidden" name="subject" value="New volunteer registration — Bridgewater Friends Forum class sign-up" />
+
+        <!-- Honeypot -->
+        <p style="display:none;">
+          <label>Don't fill this: <input name="bot-field" /></label>
+        </p>
+
+        <!-- Contact details -->
+        <div class="field">
+          <label class="field-label" for="name">Your Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" class="text-input" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" class="text-input" autocomplete="email" required />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" class="text-input" autocomplete="tel" required />
+        </div>
+
+        <!-- Class picker -->
+        <div class="field">
+          <label class="field-label">Which classes would you be willing to teach or lead? <span class="req">*</span></label>
+          <div class="helper">Check every class you'd be happy to lead — pick as many as you like.</div>
+
+          <div class="class-list">
+
+            <fieldset class="class-group">
+              <legend>Health &amp; Wellness</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="The 2nd Half of Life" /> <span>The 2nd Half of Life</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Essential Oils and Aromatherapy (6 weeks)" /> <span>Essential Oils and Aromatherapy (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Prostate Health (Seminar)" /> <span>Prostate Health (Seminar)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Qi Gong and Tai Chi for Beginners (6 weeks)" /> <span>Qi Gong and Tai Chi for Beginners (6 weeks)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>History, Language &amp; Social Sciences</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Florida History (6 weeks)" /> <span>Florida History (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Intro to Astronomy (6 weeks)" /> <span>Intro to Astronomy (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Intro to ASL — American Sign Language (6 weeks)" /> <span>Intro to ASL — American Sign Language (6 weeks)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Personal Growth &amp; Practical Skills</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Coping with Dementia and Alzheimer's (3 weeks)" /> <span>Coping with Dementia and Alzheimer's (3 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Avoiding Phone and Internet Scams (3 weeks)" /> <span>Avoiding Phone and Internet Scams (3 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Navigating Change in the Second Half of Life (6 weeks)" /> <span>Navigating Change in the Second Half of Life (6 weeks)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Lifestyle &amp; Culinary</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Mocktails and Cocktails (6 weeks)" /> <span>Mocktails and Cocktails (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Wine Tasting (Seminar)" /> <span>Wine Tasting (Seminar)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Your Central Florida Garden (6 weeks)" /> <span>Your Central Florida Garden (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Simple Home Repairs (6 weeks)" /> <span>Simple Home Repairs (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Bonsai for Beginners (Seminar)" /> <span>Bonsai for Beginners (Seminar)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Games &amp; Recreation</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Introduction to Backgammon (6 weeks)" /> <span>Introduction to Backgammon (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Learn to Play Canasta, Bridge, or Euchre (6 weeks)" /> <span>Learn to Play Canasta, Bridge, or Euchre (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Rules of Popular Sports Explained (6 weeks)" /> <span>Rules of Popular Sports Explained (6 weeks)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Arts, Music &amp; Movement</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Music Appreciation (6 weeks)" /> <span>Music Appreciation (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Flower Arranging (Seminar)" /> <span>Flower Arranging (Seminar)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Salsa and Ballroom Dancing (6 weeks)" /> <span>Salsa and Ballroom Dancing (6 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Bagpipes for Beginners (6 weeks)" /> <span>Bagpipes for Beginners (6 weeks)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Finance &amp; Investment</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Starting an Investment Club (6 weeks)" /> <span>Starting an Investment Club (6 weeks)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Safety</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Gun Safety (Seminar)" /> <span>Gun Safety (Seminar)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Balance and Self-Defense (Seminar)" /> <span>Balance and Self-Defense (Seminar)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Bicycle Safety (Seminar)" /> <span>Bicycle Safety (Seminar)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Golf Cart Rules and Safety (Seminar)" /> <span>Golf Cart Rules and Safety (Seminar)</span></label>
+            </fieldset>
+
+            <fieldset class="class-group">
+              <legend>Technology &amp; Hobbies</legend>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="Creating Your Photobook Online (3 weeks)" /> <span>Creating Your Photobook Online (3 weeks)</span></label>
+              <label class="class-option"><input type="checkbox" name="classes[]" value="How to Sell on eBay and Other e-Sites (3 weeks)" /> <span>How to Sell on eBay and Other e-Sites (3 weeks)</span></label>
+            </fieldset>
+
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit My Class Picks</button>
+        <div class="error-msg" id="error-msg">Please check at least one class before submitting.</div>
+      </form>
+
+      <!-- Confirmation (hidden until success) -->
+      <div class="confirmation" id="confirmation" style="display:none;">
+        <div class="check">&#10003;</div>
+        <h2>Thank You for Volunteering!</h2>
+        <p>We have received the classes you'd like to teach and are grateful for your willingness to share your knowledge and experience with your Bridgewater neighbors. A member of our Bridgewater Friends Forum steering committee will follow up with you personally — typically within a few business days.</p>
+        <p>Together, we are building something special.</p>
+        <p class="signature">— The Bridgewater Friends Forum Steering Committee</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    The Bridgewater Friends Forum — Sharing Ideas. Building Friendships. Enriching Lives.
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('volunteer-form');
+      var errorMsg = document.getElementById('error-msg');
+      var confirmation = document.getElementById('confirmation');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Require name, email, and phone (preventDefault bypasses native validation)
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Require at least one class to be checked
+        var checked = form.querySelectorAll('input[name="classes[]"]:checked');
+        if (checked.length === 0) {
+          errorMsg.textContent = 'Please check at least one class before submitting.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+        errorMsg.style.display = 'none';
+
+        var data = new URLSearchParams(new FormData(form)).toString();
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Submission failed');
+            }
+            form.style.display = 'none';
+            confirmation.style.display = 'block';
+            confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .catch(function () {
+            errorMsg.textContent =
+              'Sorry, something went wrong submitting your picks. Please try again.';
+            errorMsg.style.display = 'block';
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>
